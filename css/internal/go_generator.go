@@ -27,14 +27,14 @@ func (cg *CodeGenerator) GenerateSpacingFunctions(spacing *SpacingConfig) {
 	for _, prop := range spacing.Spacing.Properties {
 		// Generate function like: func P(size int) Class { return Class(fmt.Sprintf("p-%d", size)) }
 		funcName := toCamelCase(prop.Prefix)
-		
+
 		funcCode := fmt.Sprintf(`// %s applies %s utility
 func %s(size int) Class {
 	className := fmt.Sprintf("%s-%%d", size)
 	trackClass(className)
 	return Class(className)
 }`, prop.Name, prop.Name, funcName, prop.Prefix)
-		
+
 		cg.AddFunction(funcCode)
 	}
 }
@@ -45,7 +45,7 @@ func (cg *CodeGenerator) GenerateColorFunctions(colors *ColorsConfig) {
 		// Generate BgColorName and TextColorName functions
 		bgFuncName := fmt.Sprintf("Bg%s", strings.Title(colorName))
 		textFuncName := fmt.Sprintf("Text%s", strings.Title(colorName))
-		
+
 		bgFunc := fmt.Sprintf(`// %s applies bg-%s-shade utility
 func %s(shade int) Class {
 	className := fmt.Sprintf("bg-%s-%%d", shade)
@@ -77,7 +77,7 @@ func %s() Class {
 }`, funcName, display.Name, funcName, display.Name, display.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Flexbox utilities
 	for _, justify := range layout.Flexbox.Justify {
 		funcName := toCamelCase(justify.Name)
@@ -88,7 +88,7 @@ func %s() Class {
 }`, funcName, justify.Name, funcName, justify.Name, justify.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	for _, align := range layout.Flexbox.Align {
 		funcName := toCamelCase(align.Name)
 		funcCode := fmt.Sprintf(`// %s applies %s utility
@@ -98,7 +98,7 @@ func %s() Class {
 }`, funcName, align.Name, funcName, align.Name, align.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	for _, direction := range layout.Flexbox.Direction {
 		funcName := toCamelCase(direction.Name)
 		funcCode := fmt.Sprintf(`// %s applies %s utility
@@ -125,7 +125,7 @@ func %s() Class {
 }`, funcName, sizeName, funcName, sizeName, sizeName)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Text alignment utilities
 	for _, align := range typography.Typography.Align {
 		funcName := toCamelCase(align.Name)
@@ -136,7 +136,7 @@ func %s() Class {
 }`, funcName, align.Name, funcName, align.Name, align.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Font weight utilities
 	for _, weight := range typography.Typography.Weight {
 		funcName := toCamelCase(weight.Name)
@@ -147,7 +147,7 @@ func %s() Class {
 }`, funcName, weight.Name, funcName, weight.Name, weight.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Font family utilities
 	for _, family := range typography.Typography.Families {
 		funcName := toCamelCase(family.Name)
@@ -173,7 +173,7 @@ func %s(width int) Class {
 }`, funcName, prop.Name, funcName, prop.Prefix)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Border radius utilities
 	for _, prop := range borders.Borders.Radius.Properties {
 		funcName := toCamelCase(prop.Name)
@@ -185,7 +185,7 @@ func %s(radius int) Class {
 }`, funcName, prop.Name, funcName, prop.Prefix)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Special border radius utilities
 	for _, special := range borders.Borders.Radius.Special {
 		funcName := toCamelCase(special.Name)
@@ -206,7 +206,7 @@ package css
 import (
 	"fmt"
 	"sync"
-	"github.com/heysnelling/computesdk/pkg/ui/css/internal"
+	"github.com/computesdk/zforge/css/internal"
 )
 
 type Class string
@@ -280,13 +280,13 @@ func GenerateMinimalCSS() *Stylesheet {
 
 	t := template.Must(template.New("utilities").Parse(tmpl))
 	var buf strings.Builder
-	
+
 	data := struct {
 		Functions []string
 	}{
 		Functions: cg.functions,
 	}
-	
+
 	t.Execute(&buf, data)
 	return buf.String()
 }
@@ -315,7 +315,7 @@ func W(size string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Height utilities with fractions
 	funcCode = `// H applies height utility
 func H(size string) Class {
@@ -324,7 +324,7 @@ func H(size string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Max width utilities
 	funcCode = `// MaxW applies max-width utility
 func MaxW(size string) Class {
@@ -333,7 +333,7 @@ func MaxW(size string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Min width utilities
 	funcCode = `// MinW applies min-width utility
 func MinW(size string) Class {
@@ -342,7 +342,7 @@ func MinW(size string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Max height utilities
 	funcCode = `// MaxH applies max-height utility
 func MaxH(size string) Class {
@@ -351,7 +351,7 @@ func MaxH(size string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Min height utilities
 	funcCode = `// MinH applies min-height utility
 func MinH(size string) Class {
@@ -374,7 +374,7 @@ func %s() Class {
 }`, funcName, pos.Name, funcName, pos.Name, pos.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Inset utilities (generic functions for values that can be positive or negative)
 	directions := []string{"Top", "Right", "Bottom", "Left"}
 	for _, dir := range directions {
@@ -386,7 +386,7 @@ func %s(value string) Class {
 }`, dir, strings.ToLower(dir), dir, strings.ToLower(dir))
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Inset utilities
 	funcCode := `// Inset applies inset utility
 func Inset(value string) Class {
@@ -395,7 +395,7 @@ func Inset(value string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	funcCode = `// InsetX applies horizontal inset utility
 func InsetX(value string) Class {
 	className := fmt.Sprintf("inset-x-%s", value)
@@ -403,7 +403,7 @@ func InsetX(value string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	funcCode = `// InsetY applies vertical inset utility
 func InsetY(value string) Class {
 	className := fmt.Sprintf("inset-y-%s", value)
@@ -411,7 +411,7 @@ func InsetY(value string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Z-index utilities
 	funcCode = `// Z applies z-index utility
 func Z(value string) Class {
@@ -420,7 +420,7 @@ func Z(value string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Overflow utilities
 	for _, overflow := range position.Position.Overflow.Types {
 		funcName := toCamelCase(overflow.Name)
@@ -443,7 +443,7 @@ func Opacity(value int) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Shadow utilities
 	funcCode = `// Shadow applies shadow utility
 func Shadow(size ...string) Class {
@@ -457,7 +457,7 @@ func Shadow(size ...string) Class {
 	return Class(className)
 }`
 	cg.AddFunction(funcCode)
-	
+
 	// Cursor utilities
 	for _, cursor := range effects.Effects.Cursor.Values {
 		funcName := toCamelCase(cursor.Name)
@@ -468,7 +468,7 @@ func %s() Class {
 }`, funcName, cursor.Name, funcName, cursor.Name, cursor.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// User select utilities
 	for _, userSelect := range effects.Effects.UserSelect.Values {
 		funcName := toCamelCase(userSelect.Name)
@@ -479,7 +479,7 @@ func %s() Class {
 }`, funcName, userSelect.Name, funcName, userSelect.Name, userSelect.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Pointer events utilities
 	for _, pointerEvents := range effects.Effects.PointerEvents.Values {
 		funcName := toCamelCase(pointerEvents.Name)
@@ -490,7 +490,7 @@ func %s() Class {
 }`, funcName, pointerEvents.Name, funcName, pointerEvents.Name, pointerEvents.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Visibility utilities
 	for _, visibility := range effects.Effects.Visibility.Values {
 		funcName := toCamelCase(visibility.Name)
@@ -501,7 +501,7 @@ func %s() Class {
 }`, funcName, visibility.Name, funcName, visibility.Name, visibility.Name)
 		cg.AddFunction(funcCode)
 	}
-	
+
 	// Screen reader utilities
 	for _, sr := range effects.Effects.ScreenReaders.Values {
 		funcName := toCamelCase(sr.Name)
@@ -520,9 +520,9 @@ func GenerateUtilitiesCode() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	
+
 	cg := NewCodeGenerator()
-	
+
 	cg.GenerateSpacingFunctions(spacing)
 	cg.GenerateColorFunctions(colors)
 	cg.GenerateLayoutFunctions(layout)
@@ -531,6 +531,6 @@ func GenerateUtilitiesCode() (string, error) {
 	cg.GenerateSizingFunctions(sizing)
 	cg.GeneratePositionFunctions(position)
 	cg.GenerateEffectsFunctions(effects)
-	
+
 	return cg.GenerateGoCode(), nil
 }
