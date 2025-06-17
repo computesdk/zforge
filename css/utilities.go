@@ -4,7 +4,7 @@ package css
 import (
 	"fmt"
 	"sync"
-	"github.com/computesdk/zforge/css/internal"
+	"github.com/heysnelling/computesdk/pkg/ui/css/internal"
 )
 
 type Class string
@@ -184,33 +184,81 @@ func Ml(size int) Class {
 }
 
 
-// BgGray applies bg-gray-shade utility
-func BgGray(shade int) Class {
-	className := fmt.Sprintf("bg-gray-%d", shade)
+// space-x applies space-x utility
+func SpaceX(size int) Class {
+	className := fmt.Sprintf("space-x-%d", size)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// TextGray applies text-gray-shade utility  
-func TextGray(shade int) Class {
-	className := fmt.Sprintf("text-gray-%d", shade)
+// space-y applies space-y utility
+func SpaceY(size int) Class {
+	className := fmt.Sprintf("space-y-%d", size)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// BgGreen applies bg-green-shade utility
-func BgGreen(shade int) Class {
-	className := fmt.Sprintf("bg-green-%d", shade)
+// BgRose applies bg-rose-shade utility
+func BgRose(shade int) Class {
+	className := fmt.Sprintf("bg-rose-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// TextGreen applies text-green-shade utility  
-func TextGreen(shade int) Class {
-	className := fmt.Sprintf("text-green-%d", shade)
+// TextRose applies text-rose-shade utility  
+func TextRose(shade int) Class {
+	className := fmt.Sprintf("text-rose-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgSlate applies bg-slate-shade utility
+func BgSlate(shade int) Class {
+	className := fmt.Sprintf("bg-slate-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextSlate applies text-slate-shade utility  
+func TextSlate(shade int) Class {
+	className := fmt.Sprintf("text-slate-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgBlack applies bg-black-shade utility
+func BgBlack(shade int) Class {
+	className := fmt.Sprintf("bg-black-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextBlack applies text-black-shade utility  
+func TextBlack(shade int) Class {
+	className := fmt.Sprintf("text-black-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgAmber applies bg-amber-shade utility
+func BgAmber(shade int) Class {
+	className := fmt.Sprintf("bg-amber-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextAmber applies text-amber-shade utility  
+func TextAmber(shade int) Class {
+	className := fmt.Sprintf("text-amber-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
@@ -232,145 +280,17 @@ func TextFuchsia(shade int) Class {
 }
 
 
-// BgZinc applies bg-zinc-shade utility
-func BgZinc(shade int) Class {
-	className := fmt.Sprintf("bg-zinc-%d", shade)
+// BgPink applies bg-pink-shade utility
+func BgPink(shade int) Class {
+	className := fmt.Sprintf("bg-pink-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// TextZinc applies text-zinc-shade utility  
-func TextZinc(shade int) Class {
-	className := fmt.Sprintf("text-zinc-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgNeutral applies bg-neutral-shade utility
-func BgNeutral(shade int) Class {
-	className := fmt.Sprintf("bg-neutral-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextNeutral applies text-neutral-shade utility  
-func TextNeutral(shade int) Class {
-	className := fmt.Sprintf("text-neutral-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgRed applies bg-red-shade utility
-func BgRed(shade int) Class {
-	className := fmt.Sprintf("bg-red-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextRed applies text-red-shade utility  
-func TextRed(shade int) Class {
-	className := fmt.Sprintf("text-red-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgEmerald applies bg-emerald-shade utility
-func BgEmerald(shade int) Class {
-	className := fmt.Sprintf("bg-emerald-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextEmerald applies text-emerald-shade utility  
-func TextEmerald(shade int) Class {
-	className := fmt.Sprintf("text-emerald-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgTeal applies bg-teal-shade utility
-func BgTeal(shade int) Class {
-	className := fmt.Sprintf("bg-teal-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextTeal applies text-teal-shade utility  
-func TextTeal(shade int) Class {
-	className := fmt.Sprintf("text-teal-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgIndigo applies bg-indigo-shade utility
-func BgIndigo(shade int) Class {
-	className := fmt.Sprintf("bg-indigo-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextIndigo applies text-indigo-shade utility  
-func TextIndigo(shade int) Class {
-	className := fmt.Sprintf("text-indigo-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgStone applies bg-stone-shade utility
-func BgStone(shade int) Class {
-	className := fmt.Sprintf("bg-stone-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextStone applies text-stone-shade utility  
-func TextStone(shade int) Class {
-	className := fmt.Sprintf("text-stone-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgLime applies bg-lime-shade utility
-func BgLime(shade int) Class {
-	className := fmt.Sprintf("bg-lime-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextLime applies text-lime-shade utility  
-func TextLime(shade int) Class {
-	className := fmt.Sprintf("text-lime-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgSky applies bg-sky-shade utility
-func BgSky(shade int) Class {
-	className := fmt.Sprintf("bg-sky-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextSky applies text-sky-shade utility  
-func TextSky(shade int) Class {
-	className := fmt.Sprintf("text-sky-%d", shade)
+// TextPink applies text-pink-shade utility  
+func TextPink(shade int) Class {
+	className := fmt.Sprintf("text-pink-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
@@ -392,33 +312,17 @@ func TextBlue(shade int) Class {
 }
 
 
-// BgViolet applies bg-violet-shade utility
-func BgViolet(shade int) Class {
-	className := fmt.Sprintf("bg-violet-%d", shade)
+// BgIndigo applies bg-indigo-shade utility
+func BgIndigo(shade int) Class {
+	className := fmt.Sprintf("bg-indigo-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// TextViolet applies text-violet-shade utility  
-func TextViolet(shade int) Class {
-	className := fmt.Sprintf("text-violet-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// BgRose applies bg-rose-shade utility
-func BgRose(shade int) Class {
-	className := fmt.Sprintf("bg-rose-%d", shade)
-	trackClass(className)
-	return Class(className)
-}
-
-
-// TextRose applies text-rose-shade utility  
-func TextRose(shade int) Class {
-	className := fmt.Sprintf("text-rose-%d", shade)
+// TextIndigo applies text-indigo-shade utility  
+func TextIndigo(shade int) Class {
+	className := fmt.Sprintf("text-indigo-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
@@ -456,17 +360,49 @@ func TextOrange(shade int) Class {
 }
 
 
-// BgAmber applies bg-amber-shade utility
-func BgAmber(shade int) Class {
-	className := fmt.Sprintf("bg-amber-%d", shade)
+// BgLime applies bg-lime-shade utility
+func BgLime(shade int) Class {
+	className := fmt.Sprintf("bg-lime-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// TextAmber applies text-amber-shade utility  
-func TextAmber(shade int) Class {
-	className := fmt.Sprintf("text-amber-%d", shade)
+// TextLime applies text-lime-shade utility  
+func TextLime(shade int) Class {
+	className := fmt.Sprintf("text-lime-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgEmerald applies bg-emerald-shade utility
+func BgEmerald(shade int) Class {
+	className := fmt.Sprintf("bg-emerald-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextEmerald applies text-emerald-shade utility  
+func TextEmerald(shade int) Class {
+	className := fmt.Sprintf("text-emerald-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgSky applies bg-sky-shade utility
+func BgSky(shade int) Class {
+	className := fmt.Sprintf("bg-sky-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextSky applies text-sky-shade utility  
+func TextSky(shade int) Class {
+	className := fmt.Sprintf("text-sky-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
@@ -504,33 +440,145 @@ func TextCyan(shade int) Class {
 }
 
 
-// BgPink applies bg-pink-shade utility
-func BgPink(shade int) Class {
-	className := fmt.Sprintf("bg-pink-%d", shade)
+// BgViolet applies bg-violet-shade utility
+func BgViolet(shade int) Class {
+	className := fmt.Sprintf("bg-violet-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// TextPink applies text-pink-shade utility  
-func TextPink(shade int) Class {
-	className := fmt.Sprintf("text-pink-%d", shade)
+// TextViolet applies text-violet-shade utility  
+func TextViolet(shade int) Class {
+	className := fmt.Sprintf("text-violet-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// BgSlate applies bg-slate-shade utility
-func BgSlate(shade int) Class {
-	className := fmt.Sprintf("bg-slate-%d", shade)
+// BgGray applies bg-gray-shade utility
+func BgGray(shade int) Class {
+	className := fmt.Sprintf("bg-gray-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
 
 
-// TextSlate applies text-slate-shade utility  
-func TextSlate(shade int) Class {
-	className := fmt.Sprintf("text-slate-%d", shade)
+// TextGray applies text-gray-shade utility  
+func TextGray(shade int) Class {
+	className := fmt.Sprintf("text-gray-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgZinc applies bg-zinc-shade utility
+func BgZinc(shade int) Class {
+	className := fmt.Sprintf("bg-zinc-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextZinc applies text-zinc-shade utility  
+func TextZinc(shade int) Class {
+	className := fmt.Sprintf("text-zinc-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgNeutral applies bg-neutral-shade utility
+func BgNeutral(shade int) Class {
+	className := fmt.Sprintf("bg-neutral-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextNeutral applies text-neutral-shade utility  
+func TextNeutral(shade int) Class {
+	className := fmt.Sprintf("text-neutral-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgWhite applies bg-white-shade utility
+func BgWhite(shade int) Class {
+	className := fmt.Sprintf("bg-white-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextWhite applies text-white-shade utility  
+func TextWhite(shade int) Class {
+	className := fmt.Sprintf("text-white-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgRed applies bg-red-shade utility
+func BgRed(shade int) Class {
+	className := fmt.Sprintf("bg-red-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextRed applies text-red-shade utility  
+func TextRed(shade int) Class {
+	className := fmt.Sprintf("text-red-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgGreen applies bg-green-shade utility
+func BgGreen(shade int) Class {
+	className := fmt.Sprintf("bg-green-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextGreen applies text-green-shade utility  
+func TextGreen(shade int) Class {
+	className := fmt.Sprintf("text-green-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgTeal applies bg-teal-shade utility
+func BgTeal(shade int) Class {
+	className := fmt.Sprintf("bg-teal-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextTeal applies text-teal-shade utility  
+func TextTeal(shade int) Class {
+	className := fmt.Sprintf("text-teal-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// BgStone applies bg-stone-shade utility
+func BgStone(shade int) Class {
+	className := fmt.Sprintf("bg-stone-%d", shade)
+	trackClass(className)
+	return Class(className)
+}
+
+
+// TextStone applies text-stone-shade utility  
+func TextStone(shade int) Class {
+	className := fmt.Sprintf("text-stone-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
@@ -697,24 +745,17 @@ func FlexColReverse() Class {
 }
 
 
-// TextSm applies text-sm utility
-func TextSm() Class {
-	trackClass("text-sm")
-	return "text-sm"
+// Text2XL applies text-2xl utility
+func Text2XL() Class {
+	trackClass("text-2xl")
+	return "text-2xl"
 }
 
 
-// TextLg applies text-lg utility
-func TextLg() Class {
-	trackClass("text-lg")
-	return "text-lg"
-}
-
-
-// TextXl applies text-xl utility
-func TextXl() Class {
-	trackClass("text-xl")
-	return "text-xl"
+// Text3XL applies text-3xl utility
+func Text3XL() Class {
+	trackClass("text-3xl")
+	return "text-3xl"
 }
 
 
@@ -739,10 +780,10 @@ func Text8xl() Class {
 }
 
 
-// Text9xl applies text-9xl utility
-func Text9xl() Class {
-	trackClass("text-9xl")
-	return "text-9xl"
+// TextSm applies text-sm utility
+func TextSm() Class {
+	trackClass("text-sm")
+	return "text-sm"
 }
 
 
@@ -753,24 +794,10 @@ func TextBase() Class {
 }
 
 
-// Text2XL applies text-2xl utility
-func Text2XL() Class {
-	trackClass("text-2xl")
-	return "text-2xl"
-}
-
-
-// Text3XL applies text-3xl utility
-func Text3XL() Class {
-	trackClass("text-3xl")
-	return "text-3xl"
-}
-
-
-// Text6xl applies text-6xl utility
-func Text6xl() Class {
-	trackClass("text-6xl")
-	return "text-6xl"
+// TextLg applies text-lg utility
+func TextLg() Class {
+	trackClass("text-lg")
+	return "text-lg"
 }
 
 
@@ -781,10 +808,31 @@ func Text7xl() Class {
 }
 
 
+// Text9xl applies text-9xl utility
+func Text9xl() Class {
+	trackClass("text-9xl")
+	return "text-9xl"
+}
+
+
 // TextXs applies text-xs utility
 func TextXs() Class {
 	trackClass("text-xs")
 	return "text-xs"
+}
+
+
+// TextXl applies text-xl utility
+func TextXl() Class {
+	trackClass("text-xl")
+	return "text-xl"
+}
+
+
+// Text6xl applies text-6xl utility
+func Text6xl() Class {
+	trackClass("text-6xl")
+	return "text-6xl"
 }
 
 

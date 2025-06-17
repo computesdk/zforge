@@ -21,8 +21,8 @@ func main() {
 	cwd, _ := os.Getwd()
 	fmt.Printf("Current working directory: %s\n", cwd)
 
-	// Write to the css package directory (up from tool/ to internal/, up to css/)
-	outputPath := "../../utilities.go"
+	// Write to utilities.go in the css package directory
+	outputPath := "utilities.go"
 	absPath, _ := filepath.Abs(outputPath)
 	fmt.Printf("Writing to: %s\n", absPath)
 

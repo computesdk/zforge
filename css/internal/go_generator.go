@@ -26,11 +26,7 @@ func (cg *CodeGenerator) AddFunction(funcCode string) {
 func (cg *CodeGenerator) GenerateSpacingFunctions(spacing *SpacingConfig) {
 	for _, prop := range spacing.Spacing.Properties {
 		// Generate function like: func P(size int) Class { return Class(fmt.Sprintf("p-%d", size)) }
-		funcName := strings.Title(prop.Prefix)
-		if len(funcName) > 1 && funcName[1:2] != strings.ToUpper(funcName[1:2]) {
-			// Handle cases like "px" -> "Px"
-			funcName = strings.ToUpper(prop.Prefix[:1]) + prop.Prefix[1:]
-		}
+		funcName := toCamelCase(prop.Prefix)
 		
 		funcCode := fmt.Sprintf(`// %s applies %s utility
 func %s(size int) Class {

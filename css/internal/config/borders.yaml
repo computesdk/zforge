@@ -66,3 +66,13 @@ borders:
       css_property: "border-style: double"
     - name: border-none
       css_property: "border-style: none"
+  
+  colors:
+    - gray
+    - blue
+    - green
+    - purple
+    - red
+    - yellow
+    - indigo
+    - pink

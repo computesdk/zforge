@@ -44,3 +44,9 @@ spacing:
     - name: margin-left
       prefix: ml
       css_property: "margin-left: {value}"
+    - name: space-x
+      prefix: space-x
+      css_property: "& > * + * { margin-left: {value} }"
+    - name: space-y
+      prefix: space-y
+      css_property: "& > * + * { margin-top: {value} }"

@@ -44,3 +44,8 @@ func Span(content string) *Element {
 func Text(content string) *Element {
 	return &Element{Content: content}
 }
+
+// A creates a new anchor element
+func A() *Element {
+	return &Element{Tag: "a"}
+}
