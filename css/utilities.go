@@ -31,7 +31,6 @@ func trackClass(className string) {
 func GetUsedClasses() []string {
 	classMutex.RLock()
 	defer classMutex.RUnlock()
-
 	classes := make([]string, 0, len(usedClasses))
 	for class := range usedClasses {
 		classes = append(classes, class)

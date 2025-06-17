@@ -65,6 +65,7 @@ borders:
     - name: border-double
       css_property: "border-style: double"
     - name: border-none
+<<<<<<< HEAD
       css_property: "border-style: none"
   
   colors:
@@ -76,3 +77,6 @@ borders:
     - yellow
     - indigo
     - pink
+=======
+      css_property: "border-style: none"
+>>>>>>> 19bce21 (Feature: adding in css and html pkgs (#1))
