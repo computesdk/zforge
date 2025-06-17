@@ -4,6 +4,7 @@ package css
 import (
 	"fmt"
 	"sync"
+
 	"github.com/computesdk/zforge/css/internal"
 )
 
@@ -30,7 +31,7 @@ func trackClass(className string) {
 func GetUsedClasses() []string {
 	classMutex.RLock()
 	defer classMutex.RUnlock()
-	
+
 	classes := make([]string, 0, len(usedClasses))
 	for class := range usedClasses {
 		classes = append(classes, class)
@@ -71,14 +72,12 @@ func GenerateMinimalCSS() *Stylesheet {
 	return &Stylesheet{internal: internal.GenerateMinimalCSS(GetUsedClasses())}
 }
 
-
 // padding applies padding utility
 func P(size int) Class {
 	className := fmt.Sprintf("p-%d", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // padding-x applies padding-x utility
 func Px(size int) Class {
@@ -87,14 +86,12 @@ func Px(size int) Class {
 	return Class(className)
 }
 
-
 // padding-y applies padding-y utility
 func Py(size int) Class {
 	className := fmt.Sprintf("py-%d", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // padding-top applies padding-top utility
 func Pt(size int) Class {
@@ -103,14 +100,12 @@ func Pt(size int) Class {
 	return Class(className)
 }
 
-
 // padding-right applies padding-right utility
 func Pr(size int) Class {
 	className := fmt.Sprintf("pr-%d", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // padding-bottom applies padding-bottom utility
 func Pb(size int) Class {
@@ -119,14 +114,12 @@ func Pb(size int) Class {
 	return Class(className)
 }
 
-
 // padding-left applies padding-left utility
 func Pl(size int) Class {
 	className := fmt.Sprintf("pl-%d", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // margin applies margin utility
 func M(size int) Class {
@@ -135,14 +128,12 @@ func M(size int) Class {
 	return Class(className)
 }
 
-
 // margin-x applies margin-x utility
 func Mx(size int) Class {
 	className := fmt.Sprintf("mx-%d", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // margin-y applies margin-y utility
 func My(size int) Class {
@@ -151,14 +142,12 @@ func My(size int) Class {
 	return Class(className)
 }
 
-
 // margin-top applies margin-top utility
 func Mt(size int) Class {
 	className := fmt.Sprintf("mt-%d", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // margin-right applies margin-right utility
 func Mr(size int) Class {
@@ -167,14 +156,12 @@ func Mr(size int) Class {
 	return Class(className)
 }
 
-
 // margin-bottom applies margin-bottom utility
 func Mb(size int) Class {
 	className := fmt.Sprintf("mb-%d", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // margin-left applies margin-left utility
 func Ml(size int) Class {
@@ -183,14 +170,12 @@ func Ml(size int) Class {
 	return Class(className)
 }
 
-
 // space-x applies space-x utility
 func SpaceX(size int) Class {
 	className := fmt.Sprintf("space-x-%d", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // space-y applies space-y utility
 func SpaceY(size int) Class {
@@ -199,7 +184,6 @@ func SpaceY(size int) Class {
 	return Class(className)
 }
 
-
 // BgOrange applies bg-orange-shade utility
 func BgOrange(shade int) Class {
 	className := fmt.Sprintf("bg-orange-%d", shade)
@@ -207,14 +191,12 @@ func BgOrange(shade int) Class {
 	return Class(className)
 }
 
-
-// TextOrange applies text-orange-shade utility  
+// TextOrange applies text-orange-shade utility
 func TextOrange(shade int) Class {
 	className := fmt.Sprintf("text-orange-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgAmber applies bg-amber-shade utility
 func BgAmber(shade int) Class {
@@ -223,14 +205,12 @@ func BgAmber(shade int) Class {
 	return Class(className)
 }
 
-
-// TextAmber applies text-amber-shade utility  
+// TextAmber applies text-amber-shade utility
 func TextAmber(shade int) Class {
 	className := fmt.Sprintf("text-amber-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgEmerald applies bg-emerald-shade utility
 func BgEmerald(shade int) Class {
@@ -239,14 +219,12 @@ func BgEmerald(shade int) Class {
 	return Class(className)
 }
 
-
-// TextEmerald applies text-emerald-shade utility  
+// TextEmerald applies text-emerald-shade utility
 func TextEmerald(shade int) Class {
 	className := fmt.Sprintf("text-emerald-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgBlue applies bg-blue-shade utility
 func BgBlue(shade int) Class {
@@ -255,14 +233,12 @@ func BgBlue(shade int) Class {
 	return Class(className)
 }
 
-
-// TextBlue applies text-blue-shade utility  
+// TextBlue applies text-blue-shade utility
 func TextBlue(shade int) Class {
 	className := fmt.Sprintf("text-blue-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgRose applies bg-rose-shade utility
 func BgRose(shade int) Class {
@@ -271,14 +247,12 @@ func BgRose(shade int) Class {
 	return Class(className)
 }
 
-
-// TextRose applies text-rose-shade utility  
+// TextRose applies text-rose-shade utility
 func TextRose(shade int) Class {
 	className := fmt.Sprintf("text-rose-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgGray applies bg-gray-shade utility
 func BgGray(shade int) Class {
@@ -287,14 +261,12 @@ func BgGray(shade int) Class {
 	return Class(className)
 }
 
-
-// TextGray applies text-gray-shade utility  
+// TextGray applies text-gray-shade utility
 func TextGray(shade int) Class {
 	className := fmt.Sprintf("text-gray-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgZinc applies bg-zinc-shade utility
 func BgZinc(shade int) Class {
@@ -303,14 +275,12 @@ func BgZinc(shade int) Class {
 	return Class(className)
 }
 
-
-// TextZinc applies text-zinc-shade utility  
+// TextZinc applies text-zinc-shade utility
 func TextZinc(shade int) Class {
 	className := fmt.Sprintf("text-zinc-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgSky applies bg-sky-shade utility
 func BgSky(shade int) Class {
@@ -319,14 +289,12 @@ func BgSky(shade int) Class {
 	return Class(className)
 }
 
-
-// TextSky applies text-sky-shade utility  
+// TextSky applies text-sky-shade utility
 func TextSky(shade int) Class {
 	className := fmt.Sprintf("text-sky-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgIndigo applies bg-indigo-shade utility
 func BgIndigo(shade int) Class {
@@ -335,14 +303,12 @@ func BgIndigo(shade int) Class {
 	return Class(className)
 }
 
-
-// TextIndigo applies text-indigo-shade utility  
+// TextIndigo applies text-indigo-shade utility
 func TextIndigo(shade int) Class {
 	className := fmt.Sprintf("text-indigo-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgViolet applies bg-violet-shade utility
 func BgViolet(shade int) Class {
@@ -351,14 +317,12 @@ func BgViolet(shade int) Class {
 	return Class(className)
 }
 
-
-// TextViolet applies text-violet-shade utility  
+// TextViolet applies text-violet-shade utility
 func TextViolet(shade int) Class {
 	className := fmt.Sprintf("text-violet-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgFuchsia applies bg-fuchsia-shade utility
 func BgFuchsia(shade int) Class {
@@ -367,14 +331,12 @@ func BgFuchsia(shade int) Class {
 	return Class(className)
 }
 
-
-// TextFuchsia applies text-fuchsia-shade utility  
+// TextFuchsia applies text-fuchsia-shade utility
 func TextFuchsia(shade int) Class {
 	className := fmt.Sprintf("text-fuchsia-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgPink applies bg-pink-shade utility
 func BgPink(shade int) Class {
@@ -383,14 +345,12 @@ func BgPink(shade int) Class {
 	return Class(className)
 }
 
-
-// TextPink applies text-pink-shade utility  
+// TextPink applies text-pink-shade utility
 func TextPink(shade int) Class {
 	className := fmt.Sprintf("text-pink-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgBlack applies bg-black-shade utility
 func BgBlack(shade int) Class {
@@ -399,14 +359,12 @@ func BgBlack(shade int) Class {
 	return Class(className)
 }
 
-
-// TextBlack applies text-black-shade utility  
+// TextBlack applies text-black-shade utility
 func TextBlack(shade int) Class {
 	className := fmt.Sprintf("text-black-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgRed applies bg-red-shade utility
 func BgRed(shade int) Class {
@@ -415,14 +373,12 @@ func BgRed(shade int) Class {
 	return Class(className)
 }
 
-
-// TextRed applies text-red-shade utility  
+// TextRed applies text-red-shade utility
 func TextRed(shade int) Class {
 	className := fmt.Sprintf("text-red-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgYellow applies bg-yellow-shade utility
 func BgYellow(shade int) Class {
@@ -431,14 +387,12 @@ func BgYellow(shade int) Class {
 	return Class(className)
 }
 
-
-// TextYellow applies text-yellow-shade utility  
+// TextYellow applies text-yellow-shade utility
 func TextYellow(shade int) Class {
 	className := fmt.Sprintf("text-yellow-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgCyan applies bg-cyan-shade utility
 func BgCyan(shade int) Class {
@@ -447,14 +401,12 @@ func BgCyan(shade int) Class {
 	return Class(className)
 }
 
-
-// TextCyan applies text-cyan-shade utility  
+// TextCyan applies text-cyan-shade utility
 func TextCyan(shade int) Class {
 	className := fmt.Sprintf("text-cyan-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgSlate applies bg-slate-shade utility
 func BgSlate(shade int) Class {
@@ -463,14 +415,12 @@ func BgSlate(shade int) Class {
 	return Class(className)
 }
 
-
-// TextSlate applies text-slate-shade utility  
+// TextSlate applies text-slate-shade utility
 func TextSlate(shade int) Class {
 	className := fmt.Sprintf("text-slate-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgNeutral applies bg-neutral-shade utility
 func BgNeutral(shade int) Class {
@@ -479,14 +429,12 @@ func BgNeutral(shade int) Class {
 	return Class(className)
 }
 
-
-// TextNeutral applies text-neutral-shade utility  
+// TextNeutral applies text-neutral-shade utility
 func TextNeutral(shade int) Class {
 	className := fmt.Sprintf("text-neutral-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgStone applies bg-stone-shade utility
 func BgStone(shade int) Class {
@@ -495,14 +443,12 @@ func BgStone(shade int) Class {
 	return Class(className)
 }
 
-
-// TextStone applies text-stone-shade utility  
+// TextStone applies text-stone-shade utility
 func TextStone(shade int) Class {
 	className := fmt.Sprintf("text-stone-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgWhite applies bg-white-shade utility
 func BgWhite(shade int) Class {
@@ -511,14 +457,12 @@ func BgWhite(shade int) Class {
 	return Class(className)
 }
 
-
-// TextWhite applies text-white-shade utility  
+// TextWhite applies text-white-shade utility
 func TextWhite(shade int) Class {
 	className := fmt.Sprintf("text-white-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgLime applies bg-lime-shade utility
 func BgLime(shade int) Class {
@@ -527,14 +471,12 @@ func BgLime(shade int) Class {
 	return Class(className)
 }
 
-
-// TextLime applies text-lime-shade utility  
+// TextLime applies text-lime-shade utility
 func TextLime(shade int) Class {
 	className := fmt.Sprintf("text-lime-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgGreen applies bg-green-shade utility
 func BgGreen(shade int) Class {
@@ -543,14 +485,12 @@ func BgGreen(shade int) Class {
 	return Class(className)
 }
 
-
-// TextGreen applies text-green-shade utility  
+// TextGreen applies text-green-shade utility
 func TextGreen(shade int) Class {
 	className := fmt.Sprintf("text-green-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgTeal applies bg-teal-shade utility
 func BgTeal(shade int) Class {
@@ -559,14 +499,12 @@ func BgTeal(shade int) Class {
 	return Class(className)
 }
 
-
-// TextTeal applies text-teal-shade utility  
+// TextTeal applies text-teal-shade utility
 func TextTeal(shade int) Class {
 	className := fmt.Sprintf("text-teal-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BgPurple applies bg-purple-shade utility
 func BgPurple(shade int) Class {
@@ -575,14 +513,12 @@ func BgPurple(shade int) Class {
 	return Class(className)
 }
 
-
-// TextPurple applies text-purple-shade utility  
+// TextPurple applies text-purple-shade utility
 func TextPurple(shade int) Class {
 	className := fmt.Sprintf("text-purple-%d", shade)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // Block applies block utility
 func Block() Class {
@@ -590,13 +526,11 @@ func Block() Class {
 	return "block"
 }
 
-
 // Flex applies flex utility
 func Flex() Class {
 	trackClass("flex")
 	return "flex"
 }
-
 
 // Grid applies grid utility
 func Grid() Class {
@@ -604,13 +538,11 @@ func Grid() Class {
 	return "grid"
 }
 
-
 // Hidden applies hidden utility
 func Hidden() Class {
 	trackClass("hidden")
 	return "hidden"
 }
-
 
 // Inline applies inline utility
 func Inline() Class {
@@ -618,13 +550,11 @@ func Inline() Class {
 	return "inline"
 }
 
-
 // InlineBlock applies inline-block utility
 func InlineBlock() Class {
 	trackClass("inline-block")
 	return "inline-block"
 }
-
 
 // InlineFlex applies inline-flex utility
 func InlineFlex() Class {
@@ -632,13 +562,11 @@ func InlineFlex() Class {
 	return "inline-flex"
 }
 
-
 // InlineGrid applies inline-grid utility
 func InlineGrid() Class {
 	trackClass("inline-grid")
 	return "inline-grid"
 }
-
 
 // JustifyStart applies justify-start utility
 func JustifyStart() Class {
@@ -646,13 +574,11 @@ func JustifyStart() Class {
 	return "justify-start"
 }
 
-
 // JustifyCenter applies justify-center utility
 func JustifyCenter() Class {
 	trackClass("justify-center")
 	return "justify-center"
 }
-
 
 // JustifyEnd applies justify-end utility
 func JustifyEnd() Class {
@@ -660,13 +586,11 @@ func JustifyEnd() Class {
 	return "justify-end"
 }
 
-
 // JustifyBetween applies justify-between utility
 func JustifyBetween() Class {
 	trackClass("justify-between")
 	return "justify-between"
 }
-
 
 // JustifyAround applies justify-around utility
 func JustifyAround() Class {
@@ -674,13 +598,11 @@ func JustifyAround() Class {
 	return "justify-around"
 }
 
-
 // JustifyEvenly applies justify-evenly utility
 func JustifyEvenly() Class {
 	trackClass("justify-evenly")
 	return "justify-evenly"
 }
-
 
 // ItemsStart applies items-start utility
 func ItemsStart() Class {
@@ -688,13 +610,11 @@ func ItemsStart() Class {
 	return "items-start"
 }
 
-
 // ItemsCenter applies items-center utility
 func ItemsCenter() Class {
 	trackClass("items-center")
 	return "items-center"
 }
-
 
 // ItemsEnd applies items-end utility
 func ItemsEnd() Class {
@@ -702,13 +622,11 @@ func ItemsEnd() Class {
 	return "items-end"
 }
 
-
 // ItemsStretch applies items-stretch utility
 func ItemsStretch() Class {
 	trackClass("items-stretch")
 	return "items-stretch"
 }
-
 
 // ItemsBaseline applies items-baseline utility
 func ItemsBaseline() Class {
@@ -716,13 +634,11 @@ func ItemsBaseline() Class {
 	return "items-baseline"
 }
 
-
 // FlexRow applies flex-row utility
 func FlexRow() Class {
 	trackClass("flex-row")
 	return "flex-row"
 }
-
 
 // FlexCol applies flex-col utility
 func FlexCol() Class {
@@ -730,13 +646,11 @@ func FlexCol() Class {
 	return "flex-col"
 }
 
-
 // FlexRowReverse applies flex-row-reverse utility
 func FlexRowReverse() Class {
 	trackClass("flex-row-reverse")
 	return "flex-row-reverse"
 }
-
 
 // FlexColReverse applies flex-col-reverse utility
 func FlexColReverse() Class {
@@ -744,13 +658,11 @@ func FlexColReverse() Class {
 	return "flex-col-reverse"
 }
 
-
 // Text8xl applies text-8xl utility
 func Text8xl() Class {
 	trackClass("text-8xl")
 	return "text-8xl"
 }
-
 
 // Text9xl applies text-9xl utility
 func Text9xl() Class {
@@ -758,13 +670,11 @@ func Text9xl() Class {
 	return "text-9xl"
 }
 
-
 // TextXs applies text-xs utility
 func TextXs() Class {
 	trackClass("text-xs")
 	return "text-xs"
 }
-
 
 // TextSm applies text-sm utility
 func TextSm() Class {
@@ -772,13 +682,11 @@ func TextSm() Class {
 	return "text-sm"
 }
 
-
 // TextLg applies text-lg utility
 func TextLg() Class {
 	trackClass("text-lg")
 	return "text-lg"
 }
-
 
 // TextXl applies text-xl utility
 func TextXl() Class {
@@ -786,13 +694,11 @@ func TextXl() Class {
 	return "text-xl"
 }
 
-
 // Text2XL applies text-2xl utility
 func Text2XL() Class {
 	trackClass("text-2xl")
 	return "text-2xl"
 }
-
 
 // Text3XL applies text-3xl utility
 func Text3XL() Class {
@@ -800,13 +706,11 @@ func Text3XL() Class {
 	return "text-3xl"
 }
 
-
 // TextBase applies text-base utility
 func TextBase() Class {
 	trackClass("text-base")
 	return "text-base"
 }
-
 
 // Text4xl applies text-4xl utility
 func Text4xl() Class {
@@ -814,13 +718,11 @@ func Text4xl() Class {
 	return "text-4xl"
 }
 
-
 // Text5xl applies text-5xl utility
 func Text5xl() Class {
 	trackClass("text-5xl")
 	return "text-5xl"
 }
-
 
 // Text6xl applies text-6xl utility
 func Text6xl() Class {
@@ -828,13 +730,11 @@ func Text6xl() Class {
 	return "text-6xl"
 }
 
-
 // Text7xl applies text-7xl utility
 func Text7xl() Class {
 	trackClass("text-7xl")
 	return "text-7xl"
 }
-
 
 // TextLeft applies text-left utility
 func TextLeft() Class {
@@ -842,13 +742,11 @@ func TextLeft() Class {
 	return "text-left"
 }
 
-
 // TextCenter applies text-center utility
 func TextCenter() Class {
 	trackClass("text-center")
 	return "text-center"
 }
-
 
 // TextRight applies text-right utility
 func TextRight() Class {
@@ -856,13 +754,11 @@ func TextRight() Class {
 	return "text-right"
 }
 
-
 // TextJustify applies text-justify utility
 func TextJustify() Class {
 	trackClass("text-justify")
 	return "text-justify"
 }
-
 
 // FontThin applies font-thin utility
 func FontThin() Class {
@@ -870,13 +766,11 @@ func FontThin() Class {
 	return "font-thin"
 }
 
-
 // FontExtralight applies font-extralight utility
 func FontExtralight() Class {
 	trackClass("font-extralight")
 	return "font-extralight"
 }
-
 
 // FontLight applies font-light utility
 func FontLight() Class {
@@ -884,13 +778,11 @@ func FontLight() Class {
 	return "font-light"
 }
 
-
 // FontNormal applies font-normal utility
 func FontNormal() Class {
 	trackClass("font-normal")
 	return "font-normal"
 }
-
 
 // FontMedium applies font-medium utility
 func FontMedium() Class {
@@ -898,13 +790,11 @@ func FontMedium() Class {
 	return "font-medium"
 }
 
-
 // FontSemibold applies font-semibold utility
 func FontSemibold() Class {
 	trackClass("font-semibold")
 	return "font-semibold"
 }
-
 
 // FontBold applies font-bold utility
 func FontBold() Class {
@@ -912,13 +802,11 @@ func FontBold() Class {
 	return "font-bold"
 }
 
-
 // FontExtrabold applies font-extrabold utility
 func FontExtrabold() Class {
 	trackClass("font-extrabold")
 	return "font-extrabold"
 }
-
 
 // FontBlack applies font-black utility
 func FontBlack() Class {
@@ -926,13 +814,11 @@ func FontBlack() Class {
 	return "font-black"
 }
 
-
 // FontSans applies font-sans utility
 func FontSans() Class {
 	trackClass("font-sans")
 	return "font-sans"
 }
-
 
 // FontSerif applies font-serif utility
 func FontSerif() Class {
@@ -940,13 +826,11 @@ func FontSerif() Class {
 	return "font-serif"
 }
 
-
 // FontMono applies font-mono utility
 func FontMono() Class {
 	trackClass("font-mono")
 	return "font-mono"
 }
-
 
 // Border applies border utility
 func Border(width int) Class {
@@ -955,14 +839,12 @@ func Border(width int) Class {
 	return Class(className)
 }
 
-
 // BorderT applies border-t utility
 func BorderT(width int) Class {
 	className := fmt.Sprintf("border-t-%d", width)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BorderR applies border-r utility
 func BorderR(width int) Class {
@@ -971,14 +853,12 @@ func BorderR(width int) Class {
 	return Class(className)
 }
 
-
 // BorderB applies border-b utility
 func BorderB(width int) Class {
 	className := fmt.Sprintf("border-b-%d", width)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // BorderL applies border-l utility
 func BorderL(width int) Class {
@@ -987,14 +867,12 @@ func BorderL(width int) Class {
 	return Class(className)
 }
 
-
 // Rounded applies rounded utility
 func Rounded(radius int) Class {
 	className := fmt.Sprintf("rounded-%d", radius)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // RoundedT applies rounded-t utility
 func RoundedT(radius int) Class {
@@ -1003,14 +881,12 @@ func RoundedT(radius int) Class {
 	return Class(className)
 }
 
-
 // RoundedR applies rounded-r utility
 func RoundedR(radius int) Class {
 	className := fmt.Sprintf("rounded-r-%d", radius)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // RoundedB applies rounded-b utility
 func RoundedB(radius int) Class {
@@ -1019,14 +895,12 @@ func RoundedB(radius int) Class {
 	return Class(className)
 }
 
-
 // RoundedL applies rounded-l utility
 func RoundedL(radius int) Class {
 	className := fmt.Sprintf("rounded-l-%d", radius)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // RoundedTl applies rounded-tl utility
 func RoundedTl(radius int) Class {
@@ -1035,14 +909,12 @@ func RoundedTl(radius int) Class {
 	return Class(className)
 }
 
-
 // RoundedTr applies rounded-tr utility
 func RoundedTr(radius int) Class {
 	className := fmt.Sprintf("rounded-tr-%d", radius)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // RoundedBr applies rounded-br utility
 func RoundedBr(radius int) Class {
@@ -1051,7 +923,6 @@ func RoundedBr(radius int) Class {
 	return Class(className)
 }
 
-
 // RoundedBl applies rounded-bl utility
 func RoundedBl(radius int) Class {
 	className := fmt.Sprintf("rounded-bl-%d", radius)
@@ -1059,20 +930,17 @@ func RoundedBl(radius int) Class {
 	return Class(className)
 }
 
-
 // RoundedFull applies rounded-full utility
 func RoundedFull() Class {
 	trackClass("rounded-full")
 	return "rounded-full"
 }
 
-
 // RoundedNone applies rounded-none utility
 func RoundedNone() Class {
 	trackClass("rounded-none")
 	return "rounded-none"
 }
-
 
 // W applies width utility
 func W(size string) Class {
@@ -1081,14 +949,12 @@ func W(size string) Class {
 	return Class(className)
 }
 
-
 // H applies height utility
 func H(size string) Class {
 	className := fmt.Sprintf("h-%s", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // MaxW applies max-width utility
 func MaxW(size string) Class {
@@ -1097,14 +963,12 @@ func MaxW(size string) Class {
 	return Class(className)
 }
 
-
 // MinW applies min-width utility
 func MinW(size string) Class {
 	className := fmt.Sprintf("min-w-%s", size)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // MaxH applies max-height utility
 func MaxH(size string) Class {
@@ -1113,7 +977,6 @@ func MaxH(size string) Class {
 	return Class(className)
 }
 
-
 // MinH applies min-height utility
 func MinH(size string) Class {
 	className := fmt.Sprintf("min-h-%s", size)
@@ -1121,13 +984,11 @@ func MinH(size string) Class {
 	return Class(className)
 }
 
-
 // Static applies static utility
 func Static() Class {
 	trackClass("static")
 	return "static"
 }
-
 
 // Fixed applies fixed utility
 func Fixed() Class {
@@ -1135,13 +996,11 @@ func Fixed() Class {
 	return "fixed"
 }
 
-
 // Absolute applies absolute utility
 func Absolute() Class {
 	trackClass("absolute")
 	return "absolute"
 }
-
 
 // Relative applies relative utility
 func Relative() Class {
@@ -1149,13 +1008,11 @@ func Relative() Class {
 	return "relative"
 }
 
-
 // Sticky applies sticky utility
 func Sticky() Class {
 	trackClass("sticky")
 	return "sticky"
 }
-
 
 // Top applies top position utility
 func Top(value string) Class {
@@ -1164,14 +1021,12 @@ func Top(value string) Class {
 	return Class(className)
 }
 
-
 // Right applies right position utility
 func Right(value string) Class {
 	className := fmt.Sprintf("right-%s", value)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // Bottom applies bottom position utility
 func Bottom(value string) Class {
@@ -1180,14 +1035,12 @@ func Bottom(value string) Class {
 	return Class(className)
 }
 
-
 // Left applies left position utility
 func Left(value string) Class {
 	className := fmt.Sprintf("left-%s", value)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // Inset applies inset utility
 func Inset(value string) Class {
@@ -1196,14 +1049,12 @@ func Inset(value string) Class {
 	return Class(className)
 }
 
-
 // InsetX applies horizontal inset utility
 func InsetX(value string) Class {
 	className := fmt.Sprintf("inset-x-%s", value)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // InsetY applies vertical inset utility
 func InsetY(value string) Class {
@@ -1212,7 +1063,6 @@ func InsetY(value string) Class {
 	return Class(className)
 }
 
-
 // Z applies z-index utility
 func Z(value string) Class {
 	className := fmt.Sprintf("z-%s", value)
@@ -1220,13 +1070,11 @@ func Z(value string) Class {
 	return Class(className)
 }
 
-
 // OverflowAuto applies overflow-auto utility
 func OverflowAuto() Class {
 	trackClass("overflow-auto")
 	return "overflow-auto"
 }
-
 
 // OverflowHidden applies overflow-hidden utility
 func OverflowHidden() Class {
@@ -1234,13 +1082,11 @@ func OverflowHidden() Class {
 	return "overflow-hidden"
 }
 
-
 // OverflowVisible applies overflow-visible utility
 func OverflowVisible() Class {
 	trackClass("overflow-visible")
 	return "overflow-visible"
 }
-
 
 // OverflowScroll applies overflow-scroll utility
 func OverflowScroll() Class {
@@ -1248,13 +1094,11 @@ func OverflowScroll() Class {
 	return "overflow-scroll"
 }
 
-
 // OverflowXAuto applies overflow-x-auto utility
 func OverflowXAuto() Class {
 	trackClass("overflow-x-auto")
 	return "overflow-x-auto"
 }
-
 
 // OverflowXHidden applies overflow-x-hidden utility
 func OverflowXHidden() Class {
@@ -1262,13 +1106,11 @@ func OverflowXHidden() Class {
 	return "overflow-x-hidden"
 }
 
-
 // OverflowXVisible applies overflow-x-visible utility
 func OverflowXVisible() Class {
 	trackClass("overflow-x-visible")
 	return "overflow-x-visible"
 }
-
 
 // OverflowXScroll applies overflow-x-scroll utility
 func OverflowXScroll() Class {
@@ -1276,13 +1118,11 @@ func OverflowXScroll() Class {
 	return "overflow-x-scroll"
 }
 
-
 // OverflowYAuto applies overflow-y-auto utility
 func OverflowYAuto() Class {
 	trackClass("overflow-y-auto")
 	return "overflow-y-auto"
 }
-
 
 // OverflowYHidden applies overflow-y-hidden utility
 func OverflowYHidden() Class {
@@ -1290,13 +1130,11 @@ func OverflowYHidden() Class {
 	return "overflow-y-hidden"
 }
 
-
 // OverflowYVisible applies overflow-y-visible utility
 func OverflowYVisible() Class {
 	trackClass("overflow-y-visible")
 	return "overflow-y-visible"
 }
-
 
 // OverflowYScroll applies overflow-y-scroll utility
 func OverflowYScroll() Class {
@@ -1304,14 +1142,12 @@ func OverflowYScroll() Class {
 	return "overflow-y-scroll"
 }
 
-
 // Opacity applies opacity utility
 func Opacity(value int) Class {
 	className := fmt.Sprintf("opacity-%d", value)
 	trackClass(className)
 	return Class(className)
 }
-
 
 // Shadow applies shadow utility
 func Shadow(size ...string) Class {
@@ -1325,13 +1161,11 @@ func Shadow(size ...string) Class {
 	return Class(className)
 }
 
-
 // CursorAuto applies cursor-auto utility
 func CursorAuto() Class {
 	trackClass("cursor-auto")
 	return "cursor-auto"
 }
-
 
 // CursorDefault applies cursor-default utility
 func CursorDefault() Class {
@@ -1339,13 +1173,11 @@ func CursorDefault() Class {
 	return "cursor-default"
 }
 
-
 // CursorPointer applies cursor-pointer utility
 func CursorPointer() Class {
 	trackClass("cursor-pointer")
 	return "cursor-pointer"
 }
-
 
 // CursorWait applies cursor-wait utility
 func CursorWait() Class {
@@ -1353,13 +1185,11 @@ func CursorWait() Class {
 	return "cursor-wait"
 }
 
-
 // CursorText applies cursor-text utility
 func CursorText() Class {
 	trackClass("cursor-text")
 	return "cursor-text"
 }
-
 
 // CursorMove applies cursor-move utility
 func CursorMove() Class {
@@ -1367,13 +1197,11 @@ func CursorMove() Class {
 	return "cursor-move"
 }
 
-
 // CursorHelp applies cursor-help utility
 func CursorHelp() Class {
 	trackClass("cursor-help")
 	return "cursor-help"
 }
-
 
 // CursorNotAllowed applies cursor-not-allowed utility
 func CursorNotAllowed() Class {
@@ -1381,13 +1209,11 @@ func CursorNotAllowed() Class {
 	return "cursor-not-allowed"
 }
 
-
 // CursorNone applies cursor-none utility
 func CursorNone() Class {
 	trackClass("cursor-none")
 	return "cursor-none"
 }
-
 
 // CursorContextMenu applies cursor-context-menu utility
 func CursorContextMenu() Class {
@@ -1395,13 +1221,11 @@ func CursorContextMenu() Class {
 	return "cursor-context-menu"
 }
 
-
 // CursorProgress applies cursor-progress utility
 func CursorProgress() Class {
 	trackClass("cursor-progress")
 	return "cursor-progress"
 }
-
 
 // CursorCell applies cursor-cell utility
 func CursorCell() Class {
@@ -1409,13 +1233,11 @@ func CursorCell() Class {
 	return "cursor-cell"
 }
 
-
 // CursorCrosshair applies cursor-crosshair utility
 func CursorCrosshair() Class {
 	trackClass("cursor-crosshair")
 	return "cursor-crosshair"
 }
-
 
 // CursorVerticalText applies cursor-vertical-text utility
 func CursorVerticalText() Class {
@@ -1423,13 +1245,11 @@ func CursorVerticalText() Class {
 	return "cursor-vertical-text"
 }
 
-
 // CursorAlias applies cursor-alias utility
 func CursorAlias() Class {
 	trackClass("cursor-alias")
 	return "cursor-alias"
 }
-
 
 // CursorCopy applies cursor-copy utility
 func CursorCopy() Class {
@@ -1437,13 +1257,11 @@ func CursorCopy() Class {
 	return "cursor-copy"
 }
 
-
 // CursorNoDrop applies cursor-no-drop utility
 func CursorNoDrop() Class {
 	trackClass("cursor-no-drop")
 	return "cursor-no-drop"
 }
-
 
 // CursorGrab applies cursor-grab utility
 func CursorGrab() Class {
@@ -1451,13 +1269,11 @@ func CursorGrab() Class {
 	return "cursor-grab"
 }
 
-
 // CursorGrabbing applies cursor-grabbing utility
 func CursorGrabbing() Class {
 	trackClass("cursor-grabbing")
 	return "cursor-grabbing"
 }
-
 
 // SelectNone applies select-none utility
 func SelectNone() Class {
@@ -1465,13 +1281,11 @@ func SelectNone() Class {
 	return "select-none"
 }
 
-
 // SelectText applies select-text utility
 func SelectText() Class {
 	trackClass("select-text")
 	return "select-text"
 }
-
 
 // SelectAll applies select-all utility
 func SelectAll() Class {
@@ -1479,13 +1293,11 @@ func SelectAll() Class {
 	return "select-all"
 }
 
-
 // SelectAuto applies select-auto utility
 func SelectAuto() Class {
 	trackClass("select-auto")
 	return "select-auto"
 }
-
 
 // PointerEventsNone applies pointer-events-none utility
 func PointerEventsNone() Class {
@@ -1493,13 +1305,11 @@ func PointerEventsNone() Class {
 	return "pointer-events-none"
 }
 
-
 // PointerEventsAuto applies pointer-events-auto utility
 func PointerEventsAuto() Class {
 	trackClass("pointer-events-auto")
 	return "pointer-events-auto"
 }
-
 
 // Visible applies visible utility
 func Visible() Class {
@@ -1507,13 +1317,11 @@ func Visible() Class {
 	return "visible"
 }
 
-
 // Invisible applies invisible utility
 func Invisible() Class {
 	trackClass("invisible")
 	return "invisible"
 }
-
 
 // Collapse applies collapse utility
 func Collapse() Class {
@@ -1521,17 +1329,14 @@ func Collapse() Class {
 	return "collapse"
 }
 
-
 // SrOnly applies sr-only utility
 func SrOnly() Class {
 	trackClass("sr-only")
 	return "sr-only"
 }
 
-
 // NotSrOnly applies not-sr-only utility
 func NotSrOnly() Class {
 	trackClass("not-sr-only")
 	return "not-sr-only"
 }
-
