@@ -58,6 +58,15 @@ flexbox:
       css_property: "flex-wrap: nowrap"
     - name: flex-wrap-reverse
       css_property: "flex-wrap: wrap-reverse"
+  grow:
+    - name: flex-1
+      css_property: "flex: 1 1 0%"
+    - name: flex-auto
+      css_property: "flex: 1 1 auto"
+    - name: flex-initial
+      css_property: "flex: 0 1 auto"
+    - name: flex-none
+      css_property: "flex: none"
 
 grid:
   cols:
