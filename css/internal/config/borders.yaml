@@ -66,6 +66,7 @@ borders:
       css_property: "border-style: double"
     - name: border-none
 <<<<<<< HEAD
+<<<<<<< HEAD
       css_property: "border-style: none"
   
   colors:
@@ -80,3 +81,6 @@ borders:
 =======
       css_property: "border-style: none"
 >>>>>>> 19bce21 (Feature: adding in css and html pkgs (#1))
+=======
+      css_property: "border-style: none"
+>>>>>>> 19bce217540eef1b4b13f038432e97fff5ca7472
